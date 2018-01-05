@@ -4,6 +4,29 @@
              xmlns:local="clr-namespace:Kakarot"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="40" />
+            <Setter Property="Height" Value="70" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style TargetType="Button" x:Key="buttonNumber" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Width" Value="70" />
+        </Style>
+        <Style TargetType="Button" x:Key="buttonOther" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Width" Value="190" />
+        </Style>
+        <Style TargetType="Grid" x:Key="buttonGrid">
+            <Setter Property="Height" Value="{Binding Height, RelativeSource={RelativeSource FindAncestor, Button, 1}}" />
+            <Setter Property="Width" Value="{Binding Width, RelativeSource={RelativeSource FindAncestor, Button, 1}}" />
+        </Style>
+        <Style TargetType="TextBlock" x:Key="buttonTextName">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="TextBlock" x:Key="buttonTextKey">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
     </Application.Resources>
 </Application>

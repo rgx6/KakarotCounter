@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kakarot"
         mc:Ignorable="d"
-        Title="カカウンター" SizeToContent="WidthAndHeight" ResizeMode="NoResize" FontFamily="ＭＳ ゴシック" Closing="Window_Closing" Topmost="True">
+        Title="カカウンター"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        FontFamily="ＭＳ ゴシック"
+        Closing="Window_Closing"
+        Topmost="True"
+        KeyDown="Window_KeyDown">
     <StackPanel>
-        <Grid Margin="5 5">
+        <Grid Margin="5">
             <Grid.Resources>
                 <Style TargetType="Label">
                     <Setter Property="FontSize" Value="30" />
@@ -34,52 +40,113 @@
             <Label Grid.Column="1" Grid.Row="3" x:Name="labelAverageRot"></Label>
         </Grid>
         <WrapPanel Margin="0 20 0 0">
-            <WrapPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="FontSize" Value="40" />
-                    <Setter Property="Height" Value="70" />
-                    <Setter Property="Margin" Value="5" />
-                    <Setter Property="Width" Value="70" />
-                </Style>
-            </WrapPanel.Resources>
-            <Button x:Name="button00" Content="0" Click="button00_Click" />
+            <Button x:Name="button00" Style="{StaticResource buttonNumber}" Click="button00_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">0</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">Esc</TextBlock>
+                </Grid>
+            </Button>
         </WrapPanel>
         <WrapPanel Width="400">
-            <WrapPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="FontSize" Value="40" />
-                    <Setter Property="Height" Value="70" />
-                    <Setter Property="Margin" Value="5" />
-                    <Setter Property="Width" Value="70" />
-                </Style>
-            </WrapPanel.Resources>
-            <Button x:Name="button01" Content="1" Click="button01_Click" />
-            <Button x:Name="button02" Content="2" Click="button02_Click" />
-            <Button x:Name="button03" Content="3" Click="button03_Click" />
-            <Button x:Name="button04" Content="4" Click="button04_Click" />
-            <Button x:Name="button05" Content="5" Click="button05_Click" />
-            <Button x:Name="button06" Content="6" Click="button06_Click" />
-            <Button x:Name="button07" Content="7" Click="button07_Click" />
-            <Button x:Name="button08" Content="8" Click="button08_Click" />
-            <Button x:Name="button09" Content="9" Click="button09_Click" />
-            <Button x:Name="button10" Content="10" Click="button10_Click" />
-            <Button x:Name="button11" Content="11" Click="button11_Click" />
-            <Button x:Name="button12" Content="12" Click="button12_Click" />
-            <Button x:Name="button13" Content="13" Click="button13_Click" />
-            <Button x:Name="button14" Content="14" Click="button14_Click" />
-            <Button x:Name="button15" Content="15" Click="button15_Click" />
+            <Button x:Name="button01" Style="{StaticResource buttonNumber}" Click="button01_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">1</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F1</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button02" Style="{StaticResource buttonNumber}" Click="button02_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">2</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F2</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button03" Style="{StaticResource buttonNumber}" Click="button03_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">3</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F3</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button04" Style="{StaticResource buttonNumber}" Click="button04_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">4</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F4</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button05" Style="{StaticResource buttonNumber}" Click="button05_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">5</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F5</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button06" Style="{StaticResource buttonNumber}" Click="button06_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">6</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F6</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button07" Style="{StaticResource buttonNumber}" Click="button07_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">7</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F7</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button08" Style="{StaticResource buttonNumber}" Click="button08_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">8</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F8</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button09" Style="{StaticResource buttonNumber}" Click="button09_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">9</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F9</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button10" Style="{StaticResource buttonNumber}" Click="button10_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">10</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F10</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button11" Style="{StaticResource buttonNumber}" Click="button11_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">11</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F11</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button12" Style="{StaticResource buttonNumber}" Click="button12_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">12</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">F12</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button13" Style="{StaticResource buttonNumber}" Click="button13_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">13</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}"></TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button14" Style="{StaticResource buttonNumber}" Click="button14_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">14</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}"></TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="button15" Style="{StaticResource buttonNumber}" Click="button15_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">15</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}"></TextBlock>
+                </Grid>
+            </Button>
         </WrapPanel>
         <WrapPanel Margin="0 30 0 0">
-            <WrapPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="FontSize" Value="40" />
-                    <Setter Property="Height" Value="70" />
-                    <Setter Property="Margin" Value="5" />
-                    <Setter Property="Width" Value="190" />
-                </Style>
-            </WrapPanel.Resources>
-            <Button x:Name="buttonCancel" Content="取消" Click="buttonCancel_Click" />
-            <Button x:Name="buttonSave" Content="カカログ" Click="buttonSave_Click" />
+            <Button x:Name="buttonCancel" Style="{StaticResource buttonOther}" Click="buttonCancel_Click">
+                <Grid Style="{StaticResource buttonGrid}">
+                    <TextBlock Style="{StaticResource buttonTextName}">取消</TextBlock>
+                    <TextBlock Style="{StaticResource buttonTextKey}">BackSpace</TextBlock>
+                </Grid>
+            </Button>
+            <Button x:Name="buttonSave" Style="{StaticResource buttonOther}" Content="カカログ" Click="buttonSave_Click" />
         </WrapPanel>
     </StackPanel>
 </Window>

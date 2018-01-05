@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Kakarot
 {
@@ -15,9 +16,14 @@ namespace Kakarot
         private int MaxRot { get; set; } = 0;
         private double AverageRot { get; set; } = 0;
 
+        private Key[] KeyBindForNumbers { get; set; } = new Key[16];
+        private Key KeyBindForCancel { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            InitKeyConfig();
 
             SetLabel();
         }
@@ -31,6 +37,35 @@ namespace Kakarot
                 MessageBoxImage.Question);
 
             if (result != MessageBoxResult.Yes) e.Cancel = true;
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            var key = e.Key;
+
+            if (Key.System == key)
+            {
+                // F10対策
+                key = e.SystemKey;
+                e.Handled = true;
+            }
+
+            if (e.IsRepeat) return;
+
+            for (var i = 0; i < KeyBindForNumbers.Length; i++)
+            {
+                if (KeyBindForNumbers[i] != Key.None && KeyBindForNumbers[i] == key)
+                {
+                    Add(i);
+                    return;
+                }
+            }
+
+            if (KeyBindForCancel != Key.None && KeyBindForCancel == key)
+            {
+                Cancel();
+                return;
+            }
         }
 
         private void button01_Click(object sender, RoutedEventArgs e)
@@ -163,6 +198,27 @@ namespace Kakarot
             }
         }
 
+        private void InitKeyConfig()
+        {
+            KeyBindForNumbers[0] = Key.Escape;
+            KeyBindForNumbers[1] = Key.F1;
+            KeyBindForNumbers[2] = Key.F2;
+            KeyBindForNumbers[3] = Key.F3;
+            KeyBindForNumbers[4] = Key.F4;
+            KeyBindForNumbers[5] = Key.F5;
+            KeyBindForNumbers[6] = Key.F6;
+            KeyBindForNumbers[7] = Key.F7;
+            KeyBindForNumbers[8] = Key.F8;
+            KeyBindForNumbers[9] = Key.F9;
+            KeyBindForNumbers[10] = Key.F10;
+            KeyBindForNumbers[11] = Key.F11;
+            KeyBindForNumbers[12] = Key.F12;
+            KeyBindForNumbers[13] = Key.None;
+            KeyBindForNumbers[14] = Key.None;
+            KeyBindForNumbers[15] = Key.None;
+            KeyBindForCancel = Key.Back;
+        }
+
         private void SetLabel()
         {
             labelLapCount.Content = LapCount.ToString() + "   ";
@@ -184,7 +240,7 @@ namespace Kakarot
 
             Laps.ForEach(x =>
             {
-                sb.Append(x.TimeStamp.ToString("yyyy/MM/dd HH:mm:ss"))
+                sb.Append(x.TimeStamp.ToString("yyyy/MM/dd HH:mm:ss.fff"))
                   .Append(div)
                   .Append(x.Rot)
                   .AppendLine();
