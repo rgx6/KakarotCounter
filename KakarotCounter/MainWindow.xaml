@@ -1,0 +1,85 @@
+﻿<Window x:Class="Kakarot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kakarot"
+        mc:Ignorable="d"
+        Title="カカウンター" SizeToContent="WidthAndHeight" ResizeMode="NoResize" FontFamily="ＭＳ ゴシック" Closing="Window_Closing" Topmost="True">
+    <StackPanel>
+        <Grid Margin="5 5">
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="30" />
+                    <Setter Property="HorizontalAlignment" Value="Right" />
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0">悟飯の出番</Label>
+            <Label Grid.Column="1" Grid.Row="0" x:Name="labelLapCount"></Label>
+            <Label Grid.Column="0" Grid.Row="1">合計ロット数</Label>
+            <Label Grid.Column="1" Grid.Row="1" x:Name="labelTotalRot"></Label>
+            <Label Grid.Column="0" Grid.Row="2">最大ロット数</Label>
+            <Label Grid.Column="1" Grid.Row="2" x:Name="labelMaxRot"></Label>
+            <Label Grid.Column="0" Grid.Row="3">平均ロット数</Label>
+            <Label Grid.Column="1" Grid.Row="3" x:Name="labelAverageRot"></Label>
+        </Grid>
+        <WrapPanel Margin="0 20 0 0">
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="40" />
+                    <Setter Property="Height" Value="70" />
+                    <Setter Property="Margin" Value="5" />
+                    <Setter Property="Width" Value="70" />
+                </Style>
+            </WrapPanel.Resources>
+            <Button x:Name="button00" Content="0" Click="button00_Click" />
+        </WrapPanel>
+        <WrapPanel Width="400">
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="40" />
+                    <Setter Property="Height" Value="70" />
+                    <Setter Property="Margin" Value="5" />
+                    <Setter Property="Width" Value="70" />
+                </Style>
+            </WrapPanel.Resources>
+            <Button x:Name="button01" Content="1" Click="button01_Click" />
+            <Button x:Name="button02" Content="2" Click="button02_Click" />
+            <Button x:Name="button03" Content="3" Click="button03_Click" />
+            <Button x:Name="button04" Content="4" Click="button04_Click" />
+            <Button x:Name="button05" Content="5" Click="button05_Click" />
+            <Button x:Name="button06" Content="6" Click="button06_Click" />
+            <Button x:Name="button07" Content="7" Click="button07_Click" />
+            <Button x:Name="button08" Content="8" Click="button08_Click" />
+            <Button x:Name="button09" Content="9" Click="button09_Click" />
+            <Button x:Name="button10" Content="10" Click="button10_Click" />
+            <Button x:Name="button11" Content="11" Click="button11_Click" />
+            <Button x:Name="button12" Content="12" Click="button12_Click" />
+            <Button x:Name="button13" Content="13" Click="button13_Click" />
+            <Button x:Name="button14" Content="14" Click="button14_Click" />
+            <Button x:Name="button15" Content="15" Click="button15_Click" />
+        </WrapPanel>
+        <WrapPanel Margin="0 30 0 0">
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="FontSize" Value="40" />
+                    <Setter Property="Height" Value="70" />
+                    <Setter Property="Margin" Value="5" />
+                    <Setter Property="Width" Value="190" />
+                </Style>
+            </WrapPanel.Resources>
+            <Button x:Name="buttonCancel" Content="取消" Click="buttonCancel_Click" />
+            <Button x:Name="buttonSave" Content="カカログ" Click="buttonSave_Click" />
+        </WrapPanel>
+    </StackPanel>
+</Window>
